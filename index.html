@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Социальная сеть Место">
+    <link rel="stylesheet" href="pages/index.css">
+    <title>Mesto</title>
+</head>
+<body class="page">
+    <header class="header">
+        <img class="header__logo" src="./images/header-logo.svg" alt="Логотип Mesto">
+    </header>
+    <main>
+        <section class="profile">
+            <div class="profile__edit">
+                <img class="avatar" id='avatar' src="./images/avatar.jpg" alt="Портрет Жак-Ив Кусто">
+                <h1 class="profile__name">Жак-Ив Кусто</h1>
+                <button class="profile__edit-button" type="button"></button>
+                <p class="profile__job">Исследователь океана</p>
+            </div>
+            <button class="profile__add-button" type="button"></button>
+        </section>
+        <section>
+            <ul class="elements">
+                <li class="element">
+                    <img class="element__image" src="./images/Karachaevsc.jpg" alt="Карачаево-Черкесия">
+                    <div class="element__rectangle">
+                        <h2 class="element__title">Карачаевск</h2>
+                        <button class="element__like-button" type="button"></button>
+                    </div>
+                </li>
+                <li class="element">
+                    <img class="element__image" src="./images/Elbrus.jpg" alt="гора Эльбрус">
+                    <div class="element__rectangle">
+                        <h2 class="element__title">Гора Эльбрус</h2>
+                        <button class="element__like-button" type="button"></button>
+                    </div>
+                </li>
+                <li class="element">
+                    <img class="element__image" src="./images/Dombai.jpg" alt="Горный хребет Домбай">
+                    <div class="element__rectangle">
+                        <h2 class="element__title">Домбай</h2>
+                        <button class="element__like-button" type="button"></button>
+                    </div>
+                </li>
+                <li class="element">
+                    <img class="element__image" src="./images/Elbrus.jpg" alt="гора Эльбрус">
+                    <div class="element__rectangle">
+                        <h2 class="element__title">Гора Эльбрус</h2>
+                        <button class="element__like-button" type="button"></button>
+                    </div>
+                </li>
+                <li class="element">
+                    <img class="element__image" src="./images/Dombai.jpg" alt="Горный хребет Домбай">
+                    <div class="element__rectangle">
+                        <h2 class="element__title">Домбай</h2>
+                        <button class="element__like-button" type="button"></button>
+                    </div>
+                </li>
+                <li class="element">
+                    <img class="element__image" src="./images/Karachaevsc.jpg" alt="Карачаево-Черкесия">
+                    <div class="element__rectangle">
+                        <h2 class="element__title">Карачаево-Черкесия</h2>
+                        <button class="element__like-button" type="button"></button>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>© 2020 Mesto Russia</p>
+    </footer>
+    <div class="popup" id="popup-form">
+        <div class="popup__window">
+            <h2 class="popup__title">Редактировать профиль</h2>
+            <button class="popup__close" type="button" aria-label="Закрыть окно"></button>
+            <form novalidate>
+                <fieldset class="popup__items">
+                    <input type="text" id="popup-profile-name" name="name" class="popup__item" placeholder="Имя" minlength="1" maxlength="40" required>
+                    <input type="text" id="popup-profile-job" name="job" class="popup__item" placeholder="О себе" minlength="1" maxlength="150" required>
+                </fieldset>
+                <button class="popup__button_save" type="button">Сохранить</button>
+            </form>
+        </div>
+    </div>
+    <script src="./scripts/index.js"></script>
+</body>
+</html>
