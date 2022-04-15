@@ -6,7 +6,7 @@ let inputName = formElement.querySelector('#popup-profile-name');
 let inputJob = formElement.querySelector('#popup-profile-job');
 let profileName = document.querySelector('.profile__name');
 let profileJob = document.querySelector('.profile__job');
-let saveButton = document.querySelector('.popup__button_save');
+let saveButton = document.querySelector('.popup__button-save');
 let likeButton = document.querySelector('.element__like-button');
 
 function formSubmitHandler(evt) {
@@ -42,9 +42,9 @@ function pressButtonLike (evt) {
 }
 document.addEventListener('keydown', saveEditButton);
 document.addEventListener('keydown', pressButtonEsc);
-
 buttonOpenChangeProfile.addEventListener('click', showCardItems);
 formElement.addEventListener('submit', formSubmitHandler);
 buttonOpenChangeProfile.addEventListener('click', popupOpen);
 buttonClosePopup.addEventListener('click', popupClose);
 likeButton.addEventListener('click', pressButtonLike);
+saveButton.addEventListener('click', formSubmitHandler);
