@@ -9,7 +9,7 @@ let profileJob = document.querySelector('.profile__job');
 let saveButton = document.querySelector('.popup__button_save');
 let likeButton = document.querySelector('.element__like-button');
 
-function formSubmitHandler (evt) {
+function formSubmitHandler(evt) {
     evt.preventDefault();
     profileName.textContent = inputName.value;
     profileJob.textContent = inputJob.value;
@@ -42,7 +42,7 @@ function pressButtonLike (evt) {
 }
 document.addEventListener('keydown', saveEditButton);
 document.addEventListener('keydown', pressButtonEsc);
-saveButton.addEventListener('click', formSubmitHandler);
+
 buttonOpenChangeProfile.addEventListener('click', showCardItems);
 formElement.addEventListener('submit', formSubmitHandler);
 buttonOpenChangeProfile.addEventListener('click', popupOpen);
