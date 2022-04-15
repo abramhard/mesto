@@ -1,0 +1,17 @@
+.profile__edit {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content;
+    grid-template-areas:
+              "avatar name edit-button"
+              "avatar job job";
+}
+@media screen and (max-width: 619px) {
+    .profile__edit {
+        grid-template-areas:
+                "avatar avatar"
+                "name edit-button"
+                "job job";
+        align-self: center;
+    }
+}

@@ -1,0 +1,17 @@
+.page {
+    font-family: 'Inter', Arial, sans-serif;
+    max-width: 1280px;
+    min-width: 320px;
+    margin: 0 auto;
+    background-color: black;
+    color: #FFFFFF;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+}
