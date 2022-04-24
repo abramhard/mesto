@@ -1,4 +1,5 @@
-let formElement = document.querySelector('#popup-form');
+let popupWindow = document.querySelector('#popup-window');
+let formElement = document.querySelector('.popup__form');
 let buttonOpenChangeProfile = document.querySelector('.profile__edit-button');
 let buttonClosePopup = document.querySelector('.popup__close');
 
@@ -25,16 +26,13 @@ function saveEditButton(evt) {
         formSubmitHandler(evt)
     }
 }
-function showCardItems() {
+function popupOpen() {
+    popupWindow.classList.add('popup_opened');
     inputName.value = profileName.textContent;
     inputJob.value = profileJob.textContent;
-    popupOpen()
-}
-function popupOpen() {
-    formElement.classList.add('popup__opened');
 }
 function popupClose() {
-    formElement.classList.remove('popup__opened');
+    popupWindow.classList.remove('popup_opened');
 }
 //Заготовка под Лайк
 function pressButtonLike (evt) {
@@ -42,7 +40,6 @@ function pressButtonLike (evt) {
 }
 document.addEventListener('keydown', saveEditButton);
 document.addEventListener('keydown', pressButtonEsc);
-buttonOpenChangeProfile.addEventListener('click', showCardItems);
 formElement.addEventListener('submit', formSubmitHandler);
 buttonOpenChangeProfile.addEventListener('click', popupOpen);
 buttonClosePopup.addEventListener('click', popupClose);
