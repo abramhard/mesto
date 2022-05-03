@@ -10,6 +10,7 @@
     line-height: 17px;
     outline: none;
 }
+
 .popup__item:first-child {
     margin-top: 0;
 }
