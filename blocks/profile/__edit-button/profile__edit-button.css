@@ -15,6 +15,11 @@
     opacity: 0.6;
     cursor: pointer;
 }
+@media screen and (max-width: 900px) {
+    .profile__edit-button {
+        margin-right: 10px;
+    }
+}
 @media screen and (max-width: 619px) {
     .profile__edit-button {
         margin: 0 0 0 10px;

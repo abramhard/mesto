@@ -27,7 +27,8 @@ const titleCardInput = document.querySelector('#popup-card-link');
 
 
 const imageWindowCard = document.querySelector('.popup_view-image');
-
+const imageShowCard = document.querySelector('.popup__image');
+const nameShowCard = document.querySelector('.popup__subtitle');
 
 //обработчик отправки формы для профиля
 function formSubmitHandlerProfile(evt) {
@@ -56,9 +57,11 @@ function cardRenderFromArray (item) {
     const titleCard = newTemplateForm.querySelector('.element__title');
     titleCard.textContent = item.name;
 
+
     const linkCard = newTemplateForm.querySelector('.element__image')
     linkCard.src = item.link;
-    linkCard.addEventListener('click', handleOpenViewCard);
+    linkCard.alt = item.name;
+    linkCard.addEventListener('click',  handleOpenViewCard);
 
     const likeCard = newTemplateForm.querySelector('.element__like-button');
     likeCard.addEventListener('click', pressButtonLike);
@@ -86,10 +89,10 @@ function fieldProfile (name, job) {
 
 function handleOpenViewCard (evt) {
     const fieldCard = evt.target.closest('.element')
-    const imageShowCard = document.querySelector('.popup__image');
-    const nameShowCard = document.querySelector('.popup__subtitle');
     imageShowCard.src = fieldCard.querySelector('.element__image').src;
+    imageShowCard.alt = fieldCard.querySelector('.element__title').textContent;
     nameShowCard.textContent = fieldCard.querySelector('.element__title').textContent;
+
     popupOpen(imageWindowCard)
 }
 
@@ -105,8 +108,8 @@ function openCard () {
 
 function popupOpen(popup) {
     popup.classList.add('popup_opened');
-    document.addEventListener('keyup', pressButtonEsc);
-    document.addEventListener('mousedown',closePopupMouseDown);
+    popup.addEventListener('keyup', pressButtonEsc);
+    popup.addEventListener('mousedown',closePopupMouseDown);
 }
 
 function closePopupMouseDown (evt) {
@@ -116,8 +119,8 @@ function closePopupMouseDown (evt) {
 }
 function popupClose(popup) {
     popup.classList.remove('popup_opened');
-    document.removeEventListener('keyup', pressButtonEsc);
-    document.removeEventListener('mousedown', closePopupMouseDown)
+    popup.removeEventListener('keyup', pressButtonEsc);
+    popup.removeEventListener('mousedown', closePopupMouseDown)
 }
 function deleteCardInPage (evt) {
     evt.target.closest('.element').remove();
