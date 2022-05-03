@@ -30,7 +30,7 @@
     <div class="popup__window">
         <h2 class="popup__title">Редактировать профиль</h2>
         <button class="popup__close" type="button" aria-label="Закрыть окно"></button>
-        <form name="popup-form" class="popup__form" novalidate>
+        <form name="popup-form" id="popup-form-profile" class="popup__form" novalidate>
             <fieldset class="popup__items">
                 <input type="text" id="popup-profile-name" name="name" class="popup__item" placeholder="Имя"  required>
                 <input type="text" id="popup-profile-job" name="job" class="popup__item" placeholder="О себе" required>
@@ -43,7 +43,7 @@
     <div class="popup__window">
         <h2 class="popup__title">Новое место</h2>
         <button class="popup__close" type="button" aria-label="Закрыть окно"></button>
-        <form name="popup-form" class="popup__form" novalidate>
+        <form name="card-form" id="popup-form-card" class="popup__form" novalidate>
             <fieldset class="popup__items">
                 <input type="text" id="popup-card-name-picture" name="name picture" class="popup__item" placeholder="Название"  required>
                 <input type="text" id="popup-card-link" name="link" class="popup__item" placeholder="Ссылка на картинку" required>
@@ -52,17 +52,24 @@
         </form>
     </div>
 </div>
+<div class="popup popup_view-image">
+    <div class="popup__window-image">
+        <button class="popup__close" type="button" aria-label="Закрыть окно"></button>
+        <img class="popup__image" alt="" src="">
+        <p class="popup__subtitle"></p>
+    </div>
+</div>
 <template id="template-cards">
     <div class="element">
-        <img class="element__image">
+        <button class="element__delete-basket" type="button"></button>
+        <img class="element__image" src="" alt="">
         <div class="element__rectangle">
             <h2 class="element__title"></h2>
             <button class="element__like-button" type="button"></button>
         </div>
-        <button class="delete-basket" type="button"></button>
     </div>
 </template>
-<script src="./scripts/Cards.js"></script>
-<script src="./scripts/index.js"></script>
+<script src="scripts/cards.js"></script>
+<script src="scripts/index.js"></script>
 </body>
 </html>
