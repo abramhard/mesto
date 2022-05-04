@@ -108,7 +108,7 @@ function openCard () {
 
 function popupOpen(popup) {
     popup.classList.add('popup_opened');
-    popup.addEventListener('keyup', pressButtonEsc);
+    document.addEventListener('keyup', pressButtonEsc);
     popup.addEventListener('mousedown',closePopupMouseDown);
 }
 
@@ -119,7 +119,7 @@ function closePopupMouseDown (evt) {
 }
 function popupClose(popup) {
     popup.classList.remove('popup_opened');
-    popup.removeEventListener('keyup', pressButtonEsc);
+    document.removeEventListener('keyup', pressButtonEsc);
     popup.removeEventListener('mousedown', closePopupMouseDown)
 }
 function deleteCardInPage (evt) {
