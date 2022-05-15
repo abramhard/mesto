@@ -1,6 +1,6 @@
 .popup__item {
     width: 100%;
-    margin-top: 27px;
+    margin: 0;
     padding: 4px 0 8px;
     box-sizing: border-box;
     border: 0;
@@ -8,15 +8,7 @@
     background-color: transparent;
     font-size: 14px;
     line-height: 17px;
+}
+.popup__item:focus {
     outline: none;
-}
-
-.popup__item:first-child {
-    margin-top: 0;
-}
-
-@media screen and (max-width: 619px) {
-    .popup__item {
-        margin-top: 27px;
-    }
 }
