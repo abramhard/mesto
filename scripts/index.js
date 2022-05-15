@@ -100,11 +100,7 @@ function openProfile () {
     fieldProfile(profileName.textContent, profileJob.textContent);
     popupOpen(popupProfile);
 }
-//открытие попапа для создания карточки и сброс полей
-function openCard () {
-    formElementCard.reset();
-    popupOpen(cardWindow)
-}
+
 
 function popupOpen(popup) {
     popup.classList.add('popup_opened');
@@ -131,12 +127,19 @@ function pressButtonLike (evt) {
 }
 
 
+
 formElementProfile.addEventListener('submit', formSubmitHandlerProfile);
 
 formElementCard.addEventListener('submit', formSubmitHandlerCard);
 
 buttonOpenChangeProfile.addEventListener('click', openProfile);
-buttonAddCard.addEventListener('click', openCard);
+buttonAddCard.addEventListener('click', () => {
+    popupOpen(cardWindow)
+    formElementCard.reset()
+    const buttonElement = cardWindow.querySelector('.popup__button-save');
+    buttonElement.classList.add('popup__button-save_inactive');
+    buttonElement.setAttribute('disabled', true);
+});
 
 //закрытие попапов на крестик
 popupFields.forEach((popup) => {

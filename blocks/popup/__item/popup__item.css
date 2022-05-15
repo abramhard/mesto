@@ -11,4 +11,5 @@
 }
 .popup__item:focus {
     outline: none;
+    border: 1px solid rgba(97,92, 247, 1);
 }
