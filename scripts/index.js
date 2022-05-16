@@ -31,28 +31,28 @@ const imageShowCard = document.querySelector('.popup__image');
 const nameShowCard = document.querySelector('.popup__subtitle');
 
 //обработчик отправки формы для профиля
-function formSubmitHandlerProfile(evt) {
+function handleProfileFormSubmit(evt) {
     evt.preventDefault();
     profileName.textContent = inputName.value;
     profileJob.textContent = inputJob.value;
-    popupClose(popupProfile)
+    closePopup(popupProfile)
 }
 //обработчик отправки формы для карточки
-function formSubmitHandlerCard(evt) {
+function handleAddCardFormSubmit(evt) {
     evt.preventDefault();
     addCardInPageFromPrepend ({name: imageCardInput.value, link: titleCardInput.value});
-    popupClose(cardWindow)
+    closePopup(cardWindow)
 }
 // нажатие на кнопку ESC
 function pressButtonEsc(evt) {
     evt.preventDefault();
     if(evt.key === 'Escape') {
         const popupWindowActive = document.querySelector('.popup_opened');
-        popupClose(popupWindowActive);
+        closePopup(popupWindowActive);
     }
 }
 //чтение карточек из массива
-function cardRenderFromArray (item) {
+function createCard (item) {
     const newTemplateForm = templateForm.cloneNode(true);
     const titleCard = newTemplateForm.querySelector('.element__title');
     titleCard.textContent = item.name;
@@ -73,16 +73,16 @@ function cardRenderFromArray (item) {
 }
 //функция для добавления карточки из массива
 function addCardInPage (item) {
-    blockCardsElement.append(cardRenderFromArray(item));
+    blockCardsElement.append(createCard(item));
 }
 // функция добавления карточки в начало массива
 function addCardInPageFromPrepend (item) {
-    blockCardsElement.prepend(cardRenderFromArray(item));
+    blockCardsElement.prepend(createCard(item));
 }
 initialCards.forEach((item) => {
     addCardInPage(item);
 });
-function fieldProfile (name, job) {
+function insertInputsValue (name, job) {
     inputName.value = name;
     inputJob.value = job;
 }
@@ -93,16 +93,16 @@ function handleOpenViewCard (evt) {
     imageShowCard.alt = fieldCard.querySelector('.element__title').textContent;
     nameShowCard.textContent = fieldCard.querySelector('.element__title').textContent;
 
-    popupOpen(imageWindowCard)
+    openPopup(imageWindowCard)
 }
 
 function openProfile () {
-    fieldProfile(profileName.textContent, profileJob.textContent);
-    popupOpen(popupProfile);
+    insertInputsValue(profileName.textContent, profileJob.textContent);
+    openPopup(popupProfile);
 }
 
 
-function popupOpen(popup) {
+function openPopup(popup) {
     popup.classList.add('popup_opened');
     document.addEventListener('keyup', pressButtonEsc);
     popup.addEventListener('mousedown',closePopupMouseDown);
@@ -110,10 +110,10 @@ function popupOpen(popup) {
 
 function closePopupMouseDown (evt) {
     if (evt.target.classList.contains('popup_opened')) {
-        popupClose(evt.target)
+        closePopup(evt.target)
     }
 }
-function popupClose(popup) {
+function closePopup(popup) {
     popup.classList.remove('popup_opened');
     document.removeEventListener('keyup', pressButtonEsc);
     popup.removeEventListener('mousedown', closePopupMouseDown)
@@ -125,25 +125,26 @@ function deleteCardInPage (evt) {
 function pressButtonLike (evt) {
     evt.target.classList.toggle('element__like-button_active');
 }
-
-
-
-formElementProfile.addEventListener('submit', formSubmitHandlerProfile);
-
-formElementCard.addEventListener('submit', formSubmitHandlerCard);
-
-buttonOpenChangeProfile.addEventListener('click', openProfile);
-buttonAddCard.addEventListener('click', () => {
-    popupOpen(cardWindow)
+//открытие попапа для создания карточки и сброс полей
+function openCard () {
+    openPopup(cardWindow)
     formElementCard.reset()
     const buttonElement = cardWindow.querySelector('.popup__button-save');
     buttonElement.classList.add('popup__button-save_inactive');
     buttonElement.setAttribute('disabled', true);
-});
+}
+
+
+formElementProfile.addEventListener('submit', handleProfileFormSubmit);
+
+formElementCard.addEventListener('submit', handleAddCardFormSubmit);
+
+buttonOpenChangeProfile.addEventListener('click', openProfile);
+buttonAddCard.addEventListener('click', openCard);
 
 //закрытие попапов на крестик
 popupFields.forEach((popup) => {
-    popup.querySelector('.popup__close').addEventListener('click', () => {popupClose(popup)})
+    popup.querySelector('.popup__close').addEventListener('click', () => {closePopup(popup)})
 });
 
 
