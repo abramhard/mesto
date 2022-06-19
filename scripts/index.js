@@ -1,3 +1,8 @@
+import FormValidator from './FormValidator.js';
+import Card from './Card.js';
+import {initialCards, enableValidation} from './constants.js';
+
+
 const popupFields = document.querySelectorAll('.popup');
 // переменные для профиля
 const formElementProfile = document.querySelector('#popup-form-profile');
@@ -19,8 +24,6 @@ const cardWindow = document.querySelector('#popup-card-add');
 
 //блок для карточек
 const blockCardsElement = document.querySelector('.elements');
-
-const templateForm = document.querySelector('#template-cards').content.querySelector('.element');
 
 const imageCardInput = document.querySelector('#popup-card-name-picture');
 const titleCardInput = document.querySelector('#popup-card-link');
@@ -51,25 +54,9 @@ function pressButtonEsc(evt) {
         closePopup(popupWindowActive);
     }
 }
-//чтение карточек из массива
 function createCard (item) {
-    const newTemplateForm = templateForm.cloneNode(true);
-    const titleCard = newTemplateForm.querySelector('.element__title');
-    titleCard.textContent = item.name;
-
-
-    const linkCard = newTemplateForm.querySelector('.element__image')
-    linkCard.src = item.link;
-    linkCard.alt = item.name;
-    linkCard.addEventListener('click',  handleOpenViewCard);
-
-    const likeCard = newTemplateForm.querySelector('.element__like-button');
-    likeCard.addEventListener('click', pressButtonLike);
-
-    const removeCard = newTemplateForm.querySelector('.element__delete-basket');
-    removeCard.addEventListener('click', deleteCardInPage);
-    return newTemplateForm;
-
+    const card = new Card (item.name, item.link, '#template-cards');
+    return card.createNewCard();
 }
 //функция для добавления карточки из массива
 function addCardInPage (item) {
@@ -87,20 +74,10 @@ function insertInputsValue (name, job) {
     inputJob.value = job;
 }
 
-function handleOpenViewCard (evt) {
-    const fieldCard = evt.target.closest('.element')
-    imageShowCard.src = fieldCard.querySelector('.element__image').src;
-    imageShowCard.alt = fieldCard.querySelector('.element__title').textContent;
-    nameShowCard.textContent = fieldCard.querySelector('.element__title').textContent;
-
-    openPopup(imageWindowCard)
-}
-
 function openProfile () {
     insertInputsValue(profileName.textContent, profileJob.textContent);
     openPopup(popupProfile);
 }
-
 
 function openPopup(popup) {
     popup.classList.add('popup_opened');
@@ -118,13 +95,7 @@ function closePopup(popup) {
     document.removeEventListener('keyup', pressButtonEsc);
     popup.removeEventListener('mousedown', closePopupMouseDown)
 }
-function deleteCardInPage (evt) {
-    evt.target.closest('.element').remove();
-}
 
-function pressButtonLike (evt) {
-    evt.target.classList.toggle('element__like-button_active');
-}
 //открытие попапа для создания карточки и сброс полей
 function openCard () {
     openPopup(cardWindow)
@@ -133,7 +104,6 @@ function openCard () {
     buttonElement.classList.add('popup__button-save_inactive');
     buttonElement.setAttribute('disabled', true);
 }
-
 
 formElementProfile.addEventListener('submit', handleProfileFormSubmit);
 
@@ -146,5 +116,17 @@ buttonAddCard.addEventListener('click', openCard);
 popupFields.forEach((popup) => {
     popup.querySelector('.popup__close').addEventListener('click', () => {closePopup(popup)})
 });
+
+const enableValidationForm = () => {
+    const formList = Array.from(document.querySelectorAll(enableValidation.formSelector));
+    formList.forEach((formElement) => {
+        const validationForm = new FormValidator(enableValidation, formElement)
+        validationForm.enableValidation();
+    });
+}
+enableValidationForm();
+
+
+export {openPopup, imageShowCard, nameShowCard, imageWindowCard}
 
 
