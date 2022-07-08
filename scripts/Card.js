@@ -1,9 +1,10 @@
-import {openPopup, imageShowCard, nameShowCard, imageWindowCard} from './index.js'
+//import {openPopup, imageShowCard, nameShowCard, imageWindowCard} from './index.js'
 export default class Card {
-    constructor (name, link, templateElements) {
-        this._name = name;
-        this._link = link;
+    constructor ({ data, handleCardClick }, templateElements) {
+        this._name = data.name;
+        this._link = data.link;
         this._templateElements = templateElements;
+        this._handleCardClick = handleCardClick;
     }
     _getTemplate () {
         const elementCard = document
@@ -13,15 +14,15 @@ export default class Card {
             .cloneNode(true)
         return elementCard
     }
-    _handleOpenViewCard () {
+   /* _handleOpenViewCard () {
         imageShowCard.src = this._link;
         imageShowCard.alt = this._name;
         nameShowCard.textContent = this._name;
 
         openPopup(imageWindowCard)
-    }
+    }*/
     _setEventListeners () {
-        this._elementCard.querySelector('.element__image').addEventListener('click', () => this._handleOpenViewCard());
+        this._elementCard.querySelector('.element__image').addEventListener('click', () => this._handleCardClick(this._name, this._link));
         this._elementCard.querySelector('.element__like-button').addEventListener('click',  this._pressButtonLike);
         this._elementCard.querySelector('.element__delete-basket').addEventListener('click', () => this._deleteCardInPage())
     }
