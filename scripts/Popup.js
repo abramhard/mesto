@@ -17,7 +17,6 @@ export default class Popup {
     }
     // нажатие на кнопку ESC
     _pressButtonEsc(evt) {
-        evt.preventDefault();
         if(evt.key === 'Escape') {
             this.close();
         }

@@ -33,3 +33,13 @@ export const enableValidation = {
     inputErrorClass: 'popup__item_type-error',
     errorClass: 'popup__item-error_active',
 };
+
+const formElementProfile = document.querySelector('#popup-form-profile');
+
+export const inputName = formElementProfile.querySelector('#popup-profile-name');
+export const inputJob = formElementProfile.querySelector('#popup-profile-job');
+export const popupProfile = document.querySelector('#popup-profile');
+export const popupCardAdd = document.querySelector('#popup-card-add');
+export const buttonOpenChangeProfile = document.querySelector('.profile__edit-button');
+export const buttonAddCard = document.querySelector('.profile__add-button');
+export const imageWindowCard = document.querySelector('#popup_view-image');

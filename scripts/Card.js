@@ -1,4 +1,3 @@
-//import {openPopup, imageShowCard, nameShowCard, imageWindowCard} from './index.js'
 export default class Card {
     constructor ({ data, handleCardClick }, templateElements) {
         this._name = data.name;
@@ -14,13 +13,7 @@ export default class Card {
             .cloneNode(true)
         return elementCard
     }
-   /* _handleOpenViewCard () {
-        imageShowCard.src = this._link;
-        imageShowCard.alt = this._name;
-        nameShowCard.textContent = this._name;
 
-        openPopup(imageWindowCard)
-    }*/
     _setEventListeners () {
         this._elementCard.querySelector('.element__image').addEventListener('click', () => this._handleCardClick(this._name, this._link));
         this._elementCard.querySelector('.element__like-button').addEventListener('click',  this._pressButtonLike);
