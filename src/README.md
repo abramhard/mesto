@@ -1,4 +1,4 @@
-# Проектная работа №4: Mesto
+# Проектная работа: Mesto
 Проект Яндекс.Практикума: Социальная сеть для освоения навыков JavaScript
 
 ## Используемые технологии:
@@ -6,9 +6,11 @@
 * CSS 3
 * Grid Layout
 * Adaptive Layout
-* Метологоия БЭМ
+* Методология БЭМ
 * JavaScript
 * Figma
+* ООП
+* Webpack
 
 ###[Ссылка на макет в Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)
 
