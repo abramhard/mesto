@@ -8,12 +8,12 @@ export default class Popup {
     open () {
         this._popup.classList.add('popup_opened');
         document.addEventListener('keydown',  this._pressButtonEsc);
-        document.addEventListener('mousedown', this._closePopupMouseDown);
+       // document.addEventListener('mousedown', this._closePopupMouseDown);
     }
     close () {
         this._popup.classList.remove('popup_opened');
         document.removeEventListener('keydown', this._pressButtonEsc);
-        document.removeEventListener('mousedown', this._closePopupMouseDown);
+        //document.removeEventListener('mousedown', this._closePopupMouseDown);
     }
     // нажатие на кнопку ESC
     _pressButtonEsc(evt) {
