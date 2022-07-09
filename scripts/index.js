@@ -15,6 +15,7 @@ const inputJob = formElementProfile.querySelector('#popup-profile-job');
 
 const profileName = document.querySelector('.profile__name');
 const profileInfo = document.querySelector('.profile__job');
+
 const popupProfile = document.querySelector('#popup-profile');
 const popupCardAdd = document.querySelector('#popup-card-add');
 const buttonOpenChangeProfile = document.querySelector('.profile__edit-button');
