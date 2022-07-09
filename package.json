@@ -1,4 +1,5 @@
 {
+  "homepage": "https://abramhard.github.io/mesto/",
   "name": "mesto",
   "version": "1.0.0",
   "description": "",
@@ -18,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/abramhard/mesto/issues"
   },
-  "homepage": "https://abramhard.github.io/mesto/",
+
   "devDependencies": {
     "@babel/core": "^7.18.6",
     "@babel/preset-env": "^7.18.6",
