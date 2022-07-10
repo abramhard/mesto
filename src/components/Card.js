@@ -15,7 +15,7 @@ export default class Card {
     }
 
     _setEventListeners () {
-        this._elementCard.querySelector('.element__image').addEventListener('click', () => this._handleCardClick(this._name, this._link));
+        this._image.addEventListener('click', () => this._handleCardClick(this._name, this._link));
         this._elementCard.querySelector('.element__like-button').addEventListener('click',  this._pressButtonLike);
         this._elementCard.querySelector('.element__delete-basket').addEventListener('click', () => this._deleteCardInPage())
     }
@@ -29,15 +29,15 @@ export default class Card {
     }
     createNewCard () {
         this._elementCard = this._getTemplate();
-        this._setEventListeners();
 
         this._image = this._elementCard.querySelector('.element__image');
+
         this._image.src = this._link;
         this._image.alt = this._name;
 
         this._titleCard = this._elementCard.querySelector('.element__title');
         this._titleCard.textContent = this._name;
-
+        this._setEventListeners();
         return this._elementCard;
     }
 }
