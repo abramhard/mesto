@@ -50,7 +50,7 @@ const popupProfileEdit = new PopupWithForm ({
             .changeProfileInfo(data)
             .then((data) => {
                 infoFromUser.setUserInfo(data);
-
+                popupProfileEdit.close()
             })
             .catch((err) => {
                 console.log(`Ошибка: ${err}`);
@@ -70,7 +70,7 @@ const popupProfileAvatar = new PopupWithForm ({
             .changeProfileImg(data)
             .then((data) => {
                 infoFromUser.setUserInfo(data);
-
+                popupProfileAvatar.close()
             })
             .catch((err) => {
                 console.log(`Ошибка: ${err}`);
@@ -107,6 +107,7 @@ function createCard (data) {
                     .deleteCard(cardId)
                     .then(() => {
                         card.deleteCard();
+                        deleteCardPopup.close()
                     })
                     .catch((err) => {
                         console.log(`Ошибка: ${err}`);
