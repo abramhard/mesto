@@ -168,6 +168,7 @@ buttonChangeAvatar.addEventListener('click', () => {
     formValidators['popup-form-image'].resetValidation();
 })
 
+
 profileCard.setEventListeners();
 popupProfileEdit.setEventListeners();
 windowImage.setEventListeners();
